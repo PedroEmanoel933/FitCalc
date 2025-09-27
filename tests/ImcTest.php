@@ -69,7 +69,7 @@ public function it_should_be_able_to_get_an_bmi_range(){
     $this->assertStringNotContainsString('Por favor, informe peso e altura para obter o seu IMC', $imcResult['BMIrange']);
 }
 
-
+//Obter o IMC e Classificar (Baixo Peso)
 #[PHPUnit\Framework\Attributes\Test]
 public function it_returns_underweight_for_bmi(){
     $weight = 50;
@@ -83,7 +83,7 @@ public function it_returns_underweight_for_bmi(){
     $this->assertEquals('Baixo peso', $imcResult['BMIrange']);
 }
 
-
+//Obter o IMC e Classificar (Sobrepeso)
 public function it_returns_overweight_for_bmi(){
     $weight = 85;
     $height = 1.70;
@@ -96,7 +96,7 @@ public function it_returns_overweight_for_bmi(){
     $this->assertEquals('Sobrepeso', $imcResult['BMIrange']);
 }
 
-
+//Obter o IMC e Classificar (Obesidade grau I)
 #[PHPUnit\Framework\Attributes\Test]
 public function it_returns_obesity_I_for_bmi(){
     $weight = 95;
@@ -110,7 +110,7 @@ public function it_returns_obesity_I_for_bmi(){
     $this->assertEquals('Obesidade grau I', $imcResult['BMIrange']);
 }
 
-
+//Obter o IMC e Classificar (Obesidade grau II)
 #[PHPUnit\Framework\Attributes\Test]
 public function it_returns_obesity_II_for_bmi(){
     $weight = 110;
@@ -124,7 +124,7 @@ public function it_returns_obesity_II_for_bmi(){
     $this->assertEquals('Obesidade grau II', $imcResult['BMIrange']);
 }
 
-
+//Obter o IMC e Classificar (Obesidade grau III)
 #[PHPUnit\Framework\Attributes\Test]
 public function it_returns_obesity_III_for_bmi(){
     $weight = 130;
@@ -138,14 +138,18 @@ public function it_returns_obesity_III_for_bmi(){
     $this->assertEquals('Obesidade grau III', $imcResult['BMIrange']);
 }
 
-
 // Salvar o IMC
-// #[PHPUnit\Framework\Attributes\Test]
-// public function it_should_be_able_to_save_bmi(){
+#[PHPUnit\Framework\Attributes\Test]
+public function it_should_be_able_to_save_bmi(){
+    $weight = 70;
+    $height = 1.70;
+    $bmiResult = 17;
 
-// }
+    $imcResult = $this -> imcController -> saveIMC($weight, $height, $bmiResult);
+
+    $this -> assertEquals($weight, $height, $bmiResult);it 
 }
-
+}
 ?>
 
 
