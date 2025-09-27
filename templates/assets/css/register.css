@@ -1,0 +1,55 @@
+@import url(global.css);
+
+.form__create-account figure {
+  width: 60px;
+  height: 60px;
+  padding: 16px;
+}
+
+.form__create-account p {
+  font-size: 14px;
+}
+
+.upload-container {
+  gap: 8px;
+}
+
+.upload-label {
+  cursor: pointer;
+}
+
+.upload-circle {
+  width: 100px;
+  height: 100px;
+  border: 3px dashed #90b8f4;
+  color: #6b8be6;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  user-select: none;
+}
+
+.form__create-account p:nth-child(2) {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  user-select: none;
+}
+
+form button {
+  transition-property: all;
+  transition-duration: 0.15s;
+}
+
+form button:hover {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+    0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}

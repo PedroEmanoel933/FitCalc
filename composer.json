@@ -1,0 +1,26 @@
+{
+    "name": "ana/fitcalc",
+    "description": "Calculadora de IMC",
+    "type": "project",
+    "autoload": {
+        "classmap": [
+            "Controller/"
+        ],
+        "psr-4": {
+            "Ana\\Fitcalc\\": "fitCalc/",
+            "Controller\\": "Controller/",
+            "Model\\": "Model/"
+        },
+         "files": [
+            "Config/configuration.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">= 8.0",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "12"
+    }
+}
