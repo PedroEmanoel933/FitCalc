@@ -2,6 +2,7 @@
 
 use Controller\ImcController;
 use PHPUnit\Framework\TestCase;
+use Model\Imcs;
 
 class ImcTest extends TestCase{
 
@@ -9,8 +10,17 @@ class ImcTest extends TestCase{
     //Responsável por realizar a comunicação com o banco de dados e a lógica da aplicação
     private $imcController;
 
+    // ATRIBUTO FAKE PARA O BANCO DE DADOS
+    private $mockImcModel;
+
     protected function setUp(): void{
-        $this->imcController = new ImcController();
+        
+        // PASSO ESSE FAKE PARA O CONTROLLER, ASSIM QUE ME PERMITE UTILIZAR
+        // AS MESMAS FUNCIONALIDADES, SÓ QUE SEM MODIFICAR O BANCO DED DADOS REAL
+        $this->imcController = new ImcController($this -> mockImcModel);
+        
+        // CRIO O BANCO DE DADOS FAKE ACESSANDO O ATRIBUTO (mockImcModel) QUE VAI RECENER A FUNÇÃO createMock() 
+        $this ->mockImcModel = $this -> createMock(Imcs::class);
     }
 
 //Verificar cálculo do IMC
@@ -19,7 +29,7 @@ class ImcTest extends TestCase{
 public function it_should_be_able_to_calculate_bmi (){
     $weight = 68;
     $height = 1.68;
-   $imcResult = $this->imcController->calculateImc($weight, $height);
+    $imcResult = $this->imcController->calculateImc($weight, $height);
     
     $this->assertArrayHasKey('imc', $imcResult);
     $this->assertArrayHasKey('BMIrange', $imcResult);
@@ -141,14 +151,17 @@ public function it_returns_obesity_III_for_bmi(){
 // Salvar o IMC
 #[PHPUnit\Framework\Attributes\Test]
 public function it_should_be_able_to_save_bmi(){
-    $weight = 70;
-    $height = 1.70;
-    $bmiResult = 17;
+    $imcResult = $this -> imcController -> calculateImc(68, 1.68);
 
-    $imcResult = $this -> imcController -> saveIMC($weight, $height, $bmiResult);
+    $this -> assertStringNotContainsString("Por favor, informe peso e altura para obter o seu IMC.", $imcResult["BMIrange"]);
 
-    $this -> assertEquals($weight, $height, $bmiResult);it 
+    $this->mockImcModel->expects($this->once())->method('createImc')->with($this->equalTo(68), $this->equalTo(1.68))->willReturn(true);    
+
+    $result = $this-> imcController-> saveIMC(68, 1.68, $imcResult['imc']);
+
+    $this -> assertTrue($result);
 }
+
 }
 ?>
 

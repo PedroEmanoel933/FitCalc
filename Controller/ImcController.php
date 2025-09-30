@@ -10,9 +10,9 @@ class ImcController
 {
     private $imcsModel;
 
-    public function __construct()
+    public function __construct(Imcs $imcsModel)
     {
-        $this->imcsModel = new Imcs();
+        $this->imcsModel = $imcsModel;
     }
 
     // CALCULO E CLASSIFICAÇÃO 

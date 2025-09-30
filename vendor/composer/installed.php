@@ -3,7 +3,7 @@
         'name' => 'ana/fitcalc',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'df99c7569d024c18b21dfbb9bc3d999299f0d9e6',
+        'reference' => '6ef9928eaa81a2f34ea7d7ae81b5ea83666bd60d',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'ana/fitcalc' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'df99c7569d024c18b21dfbb9bc3d999299f0d9e6',
+            'reference' => '6ef9928eaa81a2f34ea7d7ae81b5ea83666bd60d',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

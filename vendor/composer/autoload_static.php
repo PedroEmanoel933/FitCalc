@@ -60,6 +60,8 @@ class ComposerStaticInit5f8c76b84c1bece85735e1b3e1ac9828
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Controller\\ImcController' => __DIR__ . '/../..' . '/Controller/ImcController.php',
+        'Controller\\UserController' => __DIR__ . '/../..' . '/Controller/UserController.php',
         'PHPUnit\\Event\\Application\\Finished' => __DIR__ . '/..' . '/phpunit/phpunit/src/Event/Events/Application/Finished.php',
         'PHPUnit\\Event\\Application\\FinishedSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Event/Events/Application/FinishedSubscriber.php',
         'PHPUnit\\Event\\Application\\Started' => __DIR__ . '/..' . '/phpunit/phpunit/src/Event/Events/Application/Started.php',
