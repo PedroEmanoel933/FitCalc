@@ -15,12 +15,12 @@ class ImcTest extends TestCase{
 
     protected function setUp(): void{
         
-        // PASSO ESSE FAKE PARA O CONTROLLER, ASSIM QUE ME PERMITE UTILIZAR
-        // AS MESMAS FUNCIONALIDADES, SÓ QUE SEM MODIFICAR O BANCO DED DADOS REAL
-        $this->imcController = new ImcController($this -> mockImcModel);
-        
         // CRIO O BANCO DE DADOS FAKE ACESSANDO O ATRIBUTO (mockImcModel) QUE VAI RECENER A FUNÇÃO createMock() 
         $this ->mockImcModel = $this -> createMock(Imcs::class);
+        
+        // PASSO ESSE FAKE PARA O CONTROLLER, ASSIM QUE ME PERMITE UTILIZAR
+        // AS MESMAS FUNCIONALIDADES, SÓ QUE SEM MODIFICAR O BANCO DE DADOS REAL
+        $this->imcController = new ImcController($this -> mockImcModel);
     }
 
 //Verificar cálculo do IMC
@@ -94,6 +94,7 @@ public function it_returns_underweight_for_bmi(){
 }
 
 //Obter o IMC e Classificar (Sobrepeso)
+#[PHPUnit\Framework\Attributes\Test]
 public function it_returns_overweight_for_bmi(){
     $weight = 85;
     $height = 1.70;

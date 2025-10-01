@@ -1,4 +1,5 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 
 use Controller\UserController;
@@ -10,7 +11,7 @@ class UserTest extends TestCase{
 
     private $mockUserModel;
 
-    public function setUp(){
+    public protected function setUp(): void{
             $this -> mockUserModel = $this -> createMock(user::class);
         
             $this -> usercontroller = new UserController($this -> mockUserModel);
@@ -24,11 +25,11 @@ class UserTest extends TestCase{
 
     public function it_should_be_able_to_sign_in (){
         $this -> mockUserModel -> method('getUserByEmail') -> willReturn ([
-            "id" = 1,
+            "id" => 1,
             "user_fullname" => "Ana Luisa Santos",
             "email" => "ana@example.com",
             "password" => password_hash("123456", PASSWORD_DEFAULT), 
         ]);
     }
 }
-?>
+?>  
